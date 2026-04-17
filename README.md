@@ -1,6 +1,7 @@
 # ML Reliability Under Shift: Abstention Study
 Study of how uncertainty estimates degrade under distribution shift and how abstention-based methods improve robustness and reliability.
 
+Below is a draft of what the final repository might look like
 ```
 ml_reliability_under_shift/
 │
