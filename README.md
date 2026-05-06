@@ -4,7 +4,7 @@ Study of how uncertainty estimates degrade under distribution shift and how abst
 
 ## Final Report
 
-The final project writeup is in `notebooks/final_project_report.ipynb`. It follows the structure of deliverables, preliminaries, dataset, preprocessing, models, shift evaluation, abstention results, and discussion.
+The final writeup is in `notebooks/final_project_report.ipynb`.
 
 ## Reproducing Results
 
