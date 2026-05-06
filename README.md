@@ -1,6 +1,6 @@
 # ML Reliability Under Shift: Abstention Study
 
-Study of how uncertainty estimates degrade under distribution shift and how abstention-based methods improve robustness and reliability on the Breast Cancer Wisconsin diagnostic dataset.
+Study of how uncertainty estimates degrade under distribution shift and how abstention-based methods improve robustness and reliability on Scikit-Learn's Breast Cancer Wisconsin diagnostic dataset.
 
 ## Final Report
 
