@@ -1,41 +1,27 @@
 # ML Reliability Under Shift: Abstention Study
-Study of how uncertainty estimates degrade under distribution shift and how abstention-based methods improve robustness and reliability.
 
-Below is a draft of what the final repository might look like
+Study of how uncertainty estimates degrade under distribution shift and how abstention-based methods improve robustness and reliability on the Breast Cancer Wisconsin diagnostic dataset.
+
+## Final Report
+
+The final project writeup is in `notebooks/final_project_report.ipynb`. It follows the course submission-template structure: deliverables, preliminaries, dataset, preprocessing, models, shift evaluation, abstention results, and discussion.
+
+## Reproducing Results
+
+```bash
+python scripts/run_final_experiment.py
+python scripts/build_final_report_notebook.py
+python -m pytest tests/test_metrics_and_abstention.py
 ```
-ml_reliability_under_shift/
-│
-├── notebooks/
-│   ├── 01_data.ipynb
-│   ├── 02_baselines.ipynb
-│   ├── 03_calibration.ipynb
-│   ├── 04_abstention.ipynb
-│   └── 05_shift_evaluation.ipynb
-│
-├── src/
-│   ├── models/
-│   │   ├── baseline_logistic.py
-│   │   └── baseline_nn.py
-│   │
-│   ├── calibration/
-│   │   ├── base.py
-│   │   └── temperature.py
-│   │
-│   ├── abstention/
-│   │   ├── base.py
-│   │   ├── threshold.py
-│   │   ├── conformal.py
-│   │   └── learned.py
-│   │
-│   ├── evaluation/
-│   │   ├── metrics.py
-│   │   ├── calibration_metrics.py
-│   │   └── risk_coverage.py
-│   │
-│   └── docs/
-│       └── tbd
-│
-└── requirements.txt
-│
-└── README.md
-```
+
+The experiment writes tables and figures to `artifacts/final_report/`.
+
+## What Is Implemented
+
+- Logistic regression and feedforward neural-network baselines.
+- Calibration metrics: log loss, Brier score, expected calibration error, and reliability diagrams.
+- Temperature scaling fit on a held-out calibration split.
+- Matched synthetic covariate shifts over breast-cancer features at multiple severities.
+- Class-sensitive evaluation, including malignant recall and false-benign rate.
+- Confidence-threshold, split-conformal, and learned abstention applied to calibrated probabilities.
+- Risk-coverage and selective-risk evaluation under representative shift.

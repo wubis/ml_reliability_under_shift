@@ -1,0 +1,3 @@
+model,tn_malignant,false_benign,false_malignant,tp_benign
+logistic,41,1,1,71
+neural_net,41,1,4,68
