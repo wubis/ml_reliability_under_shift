@@ -329,14 +329,33 @@ def _write_figures(
     fig.savefig(figures_dir / "risk_coverage.png", dpi=200)
     plt.close(fig)
 
-    fig, ax = plt.subplots(figsize=(7.0, 4.2))
-    plot_df = abstention_df.copy()
-    plot_df["variant"] = plot_df["probability_source"] + " + " + plot_df["method"]
-    pivot = plot_df.pivot(index="model", columns="variant", values="selective_risk")
+    fig, ax = plt.subplots(figsize=(7.6, 4.2))
+    plot_df = abstention_df[abstention_df["probability_source"] == "calibrated"].copy()
+    method_labels = {
+        "none": "No abstention",
+        "threshold_0.8": "Threshold",
+        "split_conformal_alpha_0.1": "Conformal",
+        "learned_target_coverage_0.9": "Learned",
+    }
+    plot_df["method_label"] = plot_df["method"].map(method_labels).fillna(plot_df["method"])
+    pivot = plot_df.pivot(index="model", columns="method_label", values="selective_risk")
+    pivot = pivot[["No abstention", "Threshold", "Conformal", "Learned"]]
     pivot.plot(kind="bar", ax=ax)
     ax.set_ylabel("Selective risk")
-    ax.set_title("Abstention reduces retained error")
+    ax.set_xlabel("Model")
+    ax.set_title("Calibrated abstention reduces retained error")
     ax.grid(axis="y", alpha=0.25)
+    ax.tick_params(axis="x", rotation=0)
+    ax.legend(
+        title="Method",
+        fontsize=8,
+        title_fontsize=9,
+        loc="upper left",
+        bbox_to_anchor=(1.02, 1.0),
+        borderaxespad=0.0,
+        frameon=False,
+    )
+    fig.subplots_adjust(right=0.74)
     fig.tight_layout()
     fig.savefig(figures_dir / "abstention_risk.png", dpi=200)
     plt.close(fig)
