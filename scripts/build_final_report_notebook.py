@@ -176,7 +176,7 @@ def main() -> None:
             """
             # Results
 
-            The shift results do not show a dramatic accuracy collapse, which is an important finding rather than a failure. The test set is small and the shift is matched, so the decision boundary often remains correct. However, reliability metrics still move in the expected direction. For logistic regression, accuracy drops from 0.9825 clean to 0.9614 at severity 2.0, while Brier score increases from 0.0484 to 0.0524. For the neural net, accuracy remains roughly stable, but Brier score increases from 0.0508 to 0.0584 and log loss increases from 0.1033 to 0.1091 at severity 2.0.
+            The shift results do not show a dramatic accuracy collapse, which is an important finding rather than a failure. The test set is small and the shift is matched, so the decision boundary often remains correct. However, the proper scoring metrics show the expected reliability pressure under stronger shift. For logistic regression, accuracy drops from 0.9825 clean to 0.9614 at severity 2.0, while Brier score increases from 0.0484 to 0.0524. For the neural net, accuracy remains roughly stable, but Brier score increases from 0.0508 to 0.0584 and log loss increases from 0.1033 to 0.1091 at severity 2.0. ECE is less monotonic on this small test set, so we interpret it alongside Brier score, log loss, and abstention behavior rather than as the sole reliability signal.
 
             Temperature scaling helps on clean data and often under shift, but it is not a cure-all. This matches the core lesson: calibration is distribution-dependent. A scalar temperature learned on clean calibration examples cannot fully repair a shifted test distribution.
             """
