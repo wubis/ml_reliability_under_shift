@@ -4,7 +4,7 @@ Study of how uncertainty estimates degrade under distribution shift and how abst
 
 ## Final Report
 
-The final writeup is in `notebooks/final_project_report.ipynb`.
+The final writeup is in `notebooks/ML_final_project_report.ipynb`.
 
 ## Reproducing Results
 
